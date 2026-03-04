@@ -1,6 +1,22 @@
-# CineSaver 🎬
+<p align="center">
+  <img src="assets/logo.png" alt="CineSaver Logo" width="300"/>
+</p>
 
-A modern, minimal custom-video screensaver for macOS (Apple Silicon & Intel).
+<h1 align="center">CineSaver</h1>
+
+<p align="center">
+  <strong>A modern, minimal custom-video screensaver for macOS</strong><br>
+  Apple Silicon & Intel
+</p>
+
+<p align="center">
+  <a href="https://github.com/srikesh3005/cinesaver/releases"><img src="https://img.shields.io/github/v/release/srikesh3005/cinesaver?style=flat-square" alt="Release"></a>
+  <a href="https://github.com/srikesh3005/cinesaver/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"></a>
+  <img src="https://img.shields.io/badge/macOS-13.0+-blue?style=flat-square" alt="macOS">
+  <img src="https://img.shields.io/badge/Swift-5.9-orange?style=flat-square" alt="Swift">
+</p>
+
+---
 
 ## Overview
 
