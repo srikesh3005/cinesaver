@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21F75223F7427D1DB7CDB0D1 /* SaverSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FD9F179332DE369E9E89C1 /* SaverSettings.swift */; };
+		34838EB4F15CE3CB83140206 /* VideoSaverHostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213C5E01D1773DD9BFD85F74 /* VideoSaverHostApp.swift */; };
+		374F6A32AB2707743AA5D43E /* SaverSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FD9F179332DE369E9E89C1 /* SaverSettings.swift */; };
+		4D905EEE5C418886828ACB88 /* VideoScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571E0B76DFEB6474B342DBA /* VideoScreenSaverView.swift */; };
+		9E5D61FEBC9BC41375E760CC /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB42993F4CB64D23991A5A7 /* ScreenSaver.framework */; };
+		A653BB2A0AB2F8F9E2F4831D /* CineSaver.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 304613C60336327C22AC97D8 /* CineSaver.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C88A115A84CB6814DF904C2D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720F47D0315CB62A1BA38A34 /* ContentView.swift */; };
+		D75BBA057FB4E7C065BE1B72 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3334EEC9253CF868FBFEE6C /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE1055198A9D3D883596E09F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97FBDA700BC30FD6DAE77A78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BF9B04B0D6A4AA016479A84;
+			remoteInfo = CineSaver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		213C5E01D1773DD9BFD85F74 /* VideoSaverHostApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSaverHostApp.swift; sourceTree = "<group>"; };
+		304613C60336327C22AC97D8 /* CineSaver.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineSaver.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		48FD9F179332DE369E9E89C1 /* SaverSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverSettings.swift; sourceTree = "<group>"; };
+		5571E0B76DFEB6474B342DBA /* VideoScreenSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoScreenSaverView.swift; sourceTree = "<group>"; };
+		720F47D0315CB62A1BA38A34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8AB42993F4CB64D23991A5A7 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScreenSaver.framework; sourceTree = "<group>"; };
+		9034F10C727DBB15364D1FD1 /* CineSaverHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineSaverHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3334EEC9253CF868FBFEE6C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVFoundation.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D46EE7D69B8444AFE00473DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E5D61FEBC9BC41375E760CC /* ScreenSaver.framework in Frameworks */,
+				D75BBA057FB4E7C065BE1B72 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F64A6064A36E6C9F85F72E2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				48FD9F179332DE369E9E89C1 /* SaverSettings.swift */,
+			);
+			name = Shared;
+			path = VideoSaverHost/Shared;
+			sourceTree = "<group>";
+		};
+		26A6D6B1A9FFAE6D3116B1F0 /* VideoSaver */ = {
+			isa = PBXGroup;
+			children = (
+				5571E0B76DFEB6474B342DBA /* VideoScreenSaverView.swift */,
+			);
+			path = VideoSaver;
+			sourceTree = "<group>";
+		};
+		9BF6FFF7C520F7BC88CE748E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				304613C60336327C22AC97D8 /* CineSaver.bundle */,
+				9034F10C727DBB15364D1FD1 /* CineSaverHost.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B00BD9FA047B60C2AFDC0CCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3334EEC9253CF868FBFEE6C /* AVFoundation.framework */,
+				8AB42993F4CB64D23991A5A7 /* ScreenSaver.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0EF5F63889D1F7585D0FCE0 /* VideoSaverHost */ = {
+			isa = PBXGroup;
+			children = (
+				F1557B10C1FAA0EDB4238FBB /* App */,
+				0F64A6064A36E6C9F85F72E2 /* Shared */,
+			);
+			path = VideoSaverHost;
+			sourceTree = "<group>";
+		};
+		F1557B10C1FAA0EDB4238FBB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				720F47D0315CB62A1BA38A34 /* ContentView.swift */,
+				213C5E01D1773DD9BFD85F74 /* VideoSaverHostApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F4B9F606FF1FDF5505333DAD = {
+			isa = PBXGroup;
+			children = (
+				0F64A6064A36E6C9F85F72E2 /* Shared */,
+				26A6D6B1A9FFAE6D3116B1F0 /* VideoSaver */,
+				C0EF5F63889D1F7585D0FCE0 /* VideoSaverHost */,
+				B00BD9FA047B60C2AFDC0CCB /* Frameworks */,
+				9BF6FFF7C520F7BC88CE748E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1BF9B04B0D6A4AA016479A84 /* CineSaver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3600C466DF5A2820A545302 /* Build configuration list for PBXNativeTarget "CineSaver" */;
+			buildPhases = (
+				FAF456C514E1F0B97B7107C4 /* Sources */,
+				D46EE7D69B8444AFE00473DD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CineSaver;
+			packageProductDependencies = (
+			);
+			productName = CineSaver;
+			productReference = 304613C60336327C22AC97D8 /* CineSaver.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		CAE479D97E200EE8BBBC6E46 /* CineSaverHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F098EC248ED14E5C6F66324 /* Build configuration list for PBXNativeTarget "CineSaverHost" */;
+			buildPhases = (
+				C81311C3A15A30000D9C46BE /* Sources */,
+				EC4C148A4841E44904A569AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C81C45231487C5306A0837B /* PBXTargetDependency */,
+			);
+			name = CineSaverHost;
+			packageProductDependencies = (
+			);
+			productName = CineSaverHost;
+			productReference = 9034F10C727DBB15364D1FD1 /* CineSaverHost.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97FBDA700BC30FD6DAE77A78 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1BF9B04B0D6A4AA016479A84 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4FFAA23E82C635CD42C567A7 /* Build configuration list for PBXProject "CineSaver" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F4B9F606FF1FDF5505333DAD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BF9B04B0D6A4AA016479A84 /* CineSaver */,
+				CAE479D97E200EE8BBBC6E46 /* CineSaverHost */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC4C148A4841E44904A569AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A653BB2A0AB2F8F9E2F4831D /* CineSaver.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C81311C3A15A30000D9C46BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C88A115A84CB6814DF904C2D /* ContentView.swift in Sources */,
+				21F75223F7427D1DB7CDB0D1 /* SaverSettings.swift in Sources */,
+				34838EB4F15CE3CB83140206 /* VideoSaverHostApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAF456C514E1F0B97B7107C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374F6A32AB2707743AA5D43E /* SaverSettings.swift in Sources */,
+				4D905EEE5C418886828ACB88 /* VideoScreenSaverView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6C81C45231487C5306A0837B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BF9B04B0D6A4AA016479A84 /* CineSaver */;
+			targetProxy = CE1055198A9D3D883596E09F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		33220E195A70C19E92A805B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Config/CineSaver.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\".\"",
+				);
+				INFOPLIST_FILE = "Config/CineSaver-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
+				MACH_O_TYPE = mh_bundle;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.cinesaver;
+				PRODUCT_MODULE_NAME = CineSaver;
+				PRODUCT_NAME = CineSaver;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		4CC117038B2F3AF406B5CA4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Config/CineSaver.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\".\"",
+				);
+				INFOPLIST_FILE = "Config/CineSaver-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks";
+				MACH_O_TYPE = mh_bundle;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.cinesaver;
+				PRODUCT_MODULE_NAME = CineSaver;
+				PRODUCT_NAME = CineSaver;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+		6CE695685022EB2B6D01095C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/CineSaverHost.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Config/CineSaverHost-Info.plist";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "VideoSaver needs this for optional install automation.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.cinesaver.host;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		706700B5E7896473AE798C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Config/CineSaverHost.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Config/CineSaverHost-Info.plist";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "VideoSaver needs this for optional install automation.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.cinesaver.host;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7E44608338F1FF02E883C2C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		E4F47DC644DC7AE7C69B3CF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F098EC248ED14E5C6F66324 /* Build configuration list for PBXNativeTarget "CineSaverHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				706700B5E7896473AE798C74 /* Debug */,
+				6CE695685022EB2B6D01095C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4FFAA23E82C635CD42C567A7 /* Build configuration list for PBXProject "CineSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4F47DC644DC7AE7C69B3CF4 /* Debug */,
+				7E44608338F1FF02E883C2C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A3600C466DF5A2820A545302 /* Build configuration list for PBXNativeTarget "CineSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33220E195A70C19E92A805B9 /* Debug */,
+				4CC117038B2F3AF406B5CA4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97FBDA700BC30FD6DAE77A78 /* Project object */;
+}
