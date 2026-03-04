@@ -7,12 +7,16 @@ final class VideoScreenSaverView: ScreenSaverView {
     private var playerLayer: AVPlayerLayer?
     private var observer: NSObjectProtocol?
     private var messageLayer: CATextLayer?
+    private var fileMonitorTimer: Timer?
+    private var lastFileModificationDate: Date?
+    private var currentVideoURL: URL?
 
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
         animationTimeInterval = 1.0 / 30.0
         wantsLayer = true
         setUpPlayer()
+        startFileMonitoring()
     }
 
     required init?(coder: NSCoder) {
@@ -20,9 +24,11 @@ final class VideoScreenSaverView: ScreenSaverView {
         animationTimeInterval = 1.0 / 30.0
         wantsLayer = true
         setUpPlayer()
+        startFileMonitoring()
     }
 
     deinit {
+        stopFileMonitoring()
         cleanupPlayer()
     }
     
@@ -30,7 +36,57 @@ final class VideoScreenSaverView: ScreenSaverView {
         super.viewWillMove(toWindow: newWindow)
         if newWindow == nil {
             // View is being removed from window - stop everything
+            stopFileMonitoring()
             cleanupPlayer()
+        } else {
+            // View is being added to window - start monitoring
+            startFileMonitoring()
+        }
+    }
+    
+    private func startFileMonitoring() {
+        // Check for file changes every 2 seconds
+        fileMonitorTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
+            self?.checkForVideoFileChanges()
+        }
+    }
+    
+    private func stopFileMonitoring() {
+        fileMonitorTimer?.invalidate()
+        fileMonitorTimer = nil
+    }
+    
+    private func checkForVideoFileChanges() {
+        guard let videoURL = SaverSettings.selectedVideoURL() else { return }
+        
+        // Check if the file exists
+        guard FileManager.default.fileExists(atPath: videoURL.path) else {
+            // File was deleted
+            if currentVideoURL != nil {
+                cleanupPlayer()
+                currentVideoURL = nil
+                lastFileModificationDate = nil
+                showMessage("Video file was removed.\n\nRun CineSaverHost to select a new video.")
+            }
+            return
+        }
+        
+        // Get modification date
+        guard let attributes = try? FileManager.default.attributesOfItem(atPath: videoURL.path),
+              let modDate = attributes[.modificationDate] as? Date else {
+            return
+        }
+        
+        // Check if file was modified or if we're loading for first time
+        if lastFileModificationDate == nil || modDate > lastFileModificationDate! {
+            lastFileModificationDate = modDate
+            
+            // If we already have a player and the file changed, reload
+            if currentVideoURL != nil && player != nil {
+                print("CineSaver: Video file changed, reloading...")
+                cleanupPlayer()
+                setUpPlayer()
+            }
         }
     }
     
@@ -41,6 +97,8 @@ final class VideoScreenSaverView: ScreenSaverView {
         player?.replaceCurrentItem(with: nil)
         player = nil
         playerLayer = nil
+        messageLayer?.removeFromSuperlayer()
+        messageLayer = nil
         if let observer {
             NotificationCenter.default.removeObserver(observer)
             self.observer = nil
@@ -89,6 +147,13 @@ final class VideoScreenSaverView: ScreenSaverView {
             showMessage("Video file is not readable.\n\nPath: \(videoURL.path)\n\nCheck file permissions.")
             return
         }
+        
+        // Store current video URL and modification date
+        currentVideoURL = videoURL
+        if let attributes = try? FileManager.default.attributesOfItem(atPath: videoURL.path),
+           let modDate = attributes[.modificationDate] as? Date {
+            lastFileModificationDate = modDate
+        }
 
         let item = AVPlayerItem(url: videoURL)
         let newPlayer = AVPlayer(playerItem: item)
@@ -129,7 +194,12 @@ final class VideoScreenSaverView: ScreenSaverView {
         player = newPlayer
         playerLayer = newLayer
         
-        // Wait a bit then check if video loaded successfully (but don't auto-play)
+        // Auto-play if animation is running
+        if isAnimating {
+            newPlayer.play()
+        }
+        
+        // Wait a bit then check if video loaded successfully
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self, weak newPlayer] in
             guard let player = newPlayer else { return }
             if player.currentItem?.status == .failed {
