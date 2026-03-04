@@ -77,6 +77,35 @@ echo "📋 Copying applications..."
 cp -R "$APP_PATH" "$DMG_STAGING/"
 cp -R "$SAVER_PATH" "$DMG_STAGING/"
 
+# Copy logo if it exists
+if [ -f "$PROJECT_DIR/assets/logo.png" ]; then
+    echo "🎨 Adding logo to DMG..."
+    # Convert PNG to icns for volume icon (requires sips)
+    mkdir -p "$DMG_STAGING/.background"
+    cp "$PROJECT_DIR/assets/logo.png" "$DMG_STAGING/.background/logo.png"
+    
+    # Create icon set for volume icon
+    ICONSET_DIR="$PROJECT_DIR/build/CineSaver.iconset"
+    mkdir -p "$ICONSET_DIR"
+    
+    # Generate different sizes for .icns
+    sips -z 16 16     "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_16x16.png" > /dev/null 2>&1
+    sips -z 32 32     "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_16x16@2x.png" > /dev/null 2>&1
+    sips -z 32 32     "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_32x32.png" > /dev/null 2>&1
+    sips -z 64 64     "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_32x32@2x.png" > /dev/null 2>&1
+    sips -z 128 128   "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_128x128.png" > /dev/null 2>&1
+    sips -z 256 256   "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_128x128@2x.png" > /dev/null 2>&1
+    sips -z 256 256   "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_256x256.png" > /dev/null 2>&1
+    sips -z 512 512   "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_256x256@2x.png" > /dev/null 2>&1
+    sips -z 512 512   "$PROJECT_DIR/assets/logo.png" --out "$ICONSET_DIR/icon_512x512.png" > /dev/null 2>&1
+    
+    # Convert iconset to icns
+    iconutil -c icns "$ICONSET_DIR" -o "$DMG_STAGING/.VolumeIcon.icns" > /dev/null 2>&1
+    
+    # Clean up
+    rm -rf "$ICONSET_DIR"
+fi
+
 # Create installation instructions
 echo "📝 Creating installation guide..."
 cat > "$DMG_STAGING/Installation Instructions.txt" << 'EOF'
@@ -223,7 +252,7 @@ echo "🎨 Configuring DMG appearance..."
 # Wait for mount to be ready
 sleep 2
 
-# Set the icon positions using AppleScript (skip background for compatibility)
+# Set the icon positions using AppleScript
 osascript << EOD
 tell application "Finder"
     tell disk "$APP_NAME"
@@ -235,6 +264,10 @@ tell application "Finder"
         set viewOptions to the icon view options of container window
         set arrangement of viewOptions to not arranged
         set icon size of viewOptions to 100
+        try
+            -- Set background if logo exists
+            set background picture of viewOptions to file ".background:logo.png"
+        end try
         try
             set position of item "CineSaverHost.app" of container window to {150, 150}
             set position of item "CineSaver.saver" of container window to {150, 280}
@@ -249,6 +282,12 @@ EOD
 
 # Wait for Finder to apply changes
 sleep 2
+
+# Set custom volume icon if it exists
+if [ -f "$MOUNT_DIR/.VolumeIcon.icns" ]; then
+    SetFile -c icnC "$MOUNT_DIR/.VolumeIcon.icns"
+    SetFile -a C "$MOUNT_DIR"
+fi
 
 # Unmount
 echo "💾 Finalizing DMG..."
